@@ -39,6 +39,12 @@ app.all('/proxy/*', async (c) => {
   }
 })
 
+
+app.get('/ac_tok',async c =>{
+  const origin = c.req.header('origin')
+  return c.text(origin === 'https://page.tooto.live' ? '4414c1863ef09c1a86db5e528ef22a79' : '')
+})
+
 app.get('/', (c) => {
   return c.text('Proxy service is running')
 })
